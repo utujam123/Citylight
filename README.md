@@ -3,7 +3,7 @@ Citylight
 
 this will be the official repository of CL website 
 
-Developers/Designers
+Author
 ==================
 
 - [Nico R. Penaredondo] (http://facebook.com/nico.penaredondo)
