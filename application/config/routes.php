@@ -38,13 +38,31 @@
 |
 */
 
-$route['default_controller'] = 'home';
+$route['default_controller'] = 'controller_website';
 $route['404_override'] = '';
 
-/* FOR LOGIN */
-$route['login'] = 'auth';
-$route['dashboard/logout'] = 'auth/logout';
-$route['dashboard/change_password'] = 'auth/change_password';
 
+/***********/
+//
+// LOGIN
+//
+/***********/
+$route['auth'] = 'controller_login';
+$route['auth/process'] = 'controller_login/process';
+
+/***********/
+//
+// ADMINISTRATOR 
+//
+/***********/
+$route['user/admin'] = 'controller_administrator';
+$route['user/admin/logout'] = 'controller_administrator/logout';
+/***********/
+//
+// USER
+//
+/***********/
+$route['user'] = 'controller_branch';
+$route['user/logout'] = 'controller_branch/logout';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

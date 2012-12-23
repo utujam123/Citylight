@@ -17,6 +17,9 @@ class Controller_website extends Ci_Controller
 	public function index()
 	{
 
+		$this->load->view('site/index');
+		$this->load->view('welcome_message');
+
 	}
 	public function some_page()
 	{
