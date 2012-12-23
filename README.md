@@ -12,3 +12,4 @@ Author
 Change Log 
 =================
 - [12/21/2012] created this repository and made some changes in controllers and models
+- [12/23/2012] finished the login form. i'll make it ajax-able later
