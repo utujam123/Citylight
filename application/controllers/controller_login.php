@@ -16,8 +16,24 @@ class Controller_login extends CI_Controller
 
 	public function index($msg = NULL)
 	{
+		$this->check_login();
 		$data['msg'] = $msg;
 		$this->load->view('auth/index',$data);
+	}
+
+	private function check_login()
+	{
+		if($this->session->userdata('logged_in') == TRUE)
+		{
+			if($this->session->userdata('account_type') == 'administrator')
+			{
+				redirect('user/admin');
+			}
+			elseif($this->session->userdata('account_type') == 'user')
+			{
+				redirect('user');
+			}
+		}
 	}
 
 	public function process()
