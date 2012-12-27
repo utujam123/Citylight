@@ -12,10 +12,11 @@ class Controller_administrator extends Ci_Controller
 	{
 		parent::__construct();
 		$this->check_credentials();
+		$this->load->model('model_administrator');
 	}
 	private function check_credentials()
 	{
-		if(!$this->session->userdata('logged_in') === TRUE && !$this->session->userdata('account_type') == 'administrator')
+		if(!$this->session->userdata('logged_in') === TRUE && $this->session->userdata('account_type') != 'administrator')
 		{
 			redirect('auth/');
 		}
@@ -23,7 +24,10 @@ class Controller_administrator extends Ci_Controller
 	
 	public function index()
 	{
-		$this->load->view('user/admin/index');	
+		$view_data['recent_job_order'] = $this->model_administrator->get_recent_job_order();
+		$view_data['list_job_order'] = $this->model_administrator->get_list_job_order();
+		$view_data['list_of_accounts'] = $this->model_administrator->get_list_of_accounts();
+		$this->load->view('user/admin/index',$view_data);	
 	}
 	public function edit_profile()
 	{
@@ -33,10 +37,16 @@ class Controller_administrator extends Ci_Controller
 	{
 
 	}
-	public function job_orders()
+
+
+	
+	public function job_orders($slug = FALSE)
 	{
 
 	}
+
+
+
 
 	public function logout()
 	{

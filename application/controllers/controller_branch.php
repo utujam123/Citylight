@@ -15,7 +15,7 @@ class Controller_branch extends Ci_Controller
 	}
 	private function check_credentials()
 	{
-		if(!$this->session->userdata('logged_in') === TRUE && !$this->session->userdata('account_type') == 'user')
+		if(!$this->session->userdata('logged_in') === TRUE && $this->session->userdata('account_type') != 'user')
 		{
 			redirect('auth/');
 		}

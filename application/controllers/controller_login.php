@@ -67,5 +67,7 @@ class Controller_login extends CI_Controller
 		}
 	}
 
+	
+
 }
 ?>

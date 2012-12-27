@@ -50,6 +50,7 @@ $route['404_override'] = '';
 $route['auth'] = 'controller_login';
 $route['auth/process'] = 'controller_login/process';
 
+
 /***********/
 //
 // ADMINISTRATOR 
