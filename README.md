@@ -19,3 +19,4 @@ Change Log
 	- modified controller_website.php
 - [12/23/2012] finished the login form. i'll make it ajax-able later
 - [12/24/2012] added function in controller_login.php
+- [12/27/2012] added some non-sense function *err di ko alam kung bakit ako tinatamad*
