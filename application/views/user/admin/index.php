@@ -6,3 +6,4 @@
 <h1>List of Job Order (Paginated)</h1>
 <hr>
 <h1>List of Accounts</h1>
+<?php echo $this->session->userdata('account_type');?>

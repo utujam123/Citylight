@@ -12,11 +12,15 @@ class Controller_login extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->check_login();
 	}
 
 	public function index($msg = NULL)
 	{
-		$this->check_login();
+		/*
+		this will check if the user is still logged in
+		*/
+		
 		$data['msg'] = $msg;
 		$this->load->view('auth/index',$data);
 	}
@@ -66,6 +70,39 @@ class Controller_login extends CI_Controller
 			}
 		}
 	}
+	
+	public function ajax_process()
+	{
+			$this->load->model('model_login');
+			/*
+				things that will be passed to this function
+				1. username
+				2. password
+			*/
+
+			//the second parameter is used for XSS Filtering
+			$username = $this->input->post('username',TRUE);
+			$password = $this->input->post('password',TRUE);
+			$check_login = $this->model_login->verify();
+			if($check_login === TRUE)
+			{
+				if($this->session->userdata('account_type') == 'administrator')
+				{
+					redirect(base_url('user/admin'));
+				}elseif ($this->session->userdata('account_type') == 'user')
+				{
+					redirect('user/');
+				}else
+				{
+					redirect('auth');
+				}
+			}else
+			{
+			$msg = 'there\'s no such account';
+			return $msg;
+			}
+	}
+
 
 	
 

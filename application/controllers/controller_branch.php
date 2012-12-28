@@ -13,10 +13,16 @@ class Controller_branch extends Ci_Controller
 		parent::__construct();
 		$this->check_credentials();
 	}
-	private function check_credentials()
+	public function check_credentials()
 	{
-		if(!$this->session->userdata('logged_in') === TRUE && $this->session->userdata('account_type') != 'user')
+		if($this->session->userdata('logged_in') != TRUE)
 		{
+			if($this->session->userdata('account_type') == 'administrator')
+			{
+				redirect('user/admin');
+			}
+
+		}else{
 			redirect('auth/');
 		}
 	}

@@ -16,8 +16,15 @@ class Controller_administrator extends Ci_Controller
 	}
 	private function check_credentials()
 	{
-		if(!$this->session->userdata('logged_in') === TRUE && $this->session->userdata('account_type') != 'administrator')
+		
+		if($this->session->userdata('logged_in') == TRUE)
 		{
+			if($this->session->userdata('account_type') == 'user')
+			{
+				redirect('user/admin');
+			}
+			
+		}else{
 			redirect('auth/');
 		}
 	}
