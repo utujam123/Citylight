@@ -27,6 +27,6 @@ Change Log
 
 Remarks
 =================
- -[12/28/2012]
+-[12/28/2012]
  	- nilalabanan ko pa din ang katamaran ngayon.. :))) HAHAHA! 
- 	- this readme update is applied in [master] [https://github.com/utujam123/Citylight] branch and [user authentication] [https://github.com/utujam123/Citylight/tree/user_authentication] branch
+ 	- this readme update is applied in [master] (https://github.com/utujam123/Citylight) branch and [user authentication] (https://github.com/utujam123/Citylight/tree/user_authentication) branch
